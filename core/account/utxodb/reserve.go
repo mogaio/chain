@@ -164,7 +164,7 @@ func (res *Reserver) Reserve(ctx context.Context, sources []Source, exp time.Tim
 			for _, rid := range reservationIDs {
 				a = append(a, int64(rid))
 			}
-			dbtx.Exec(ctx, "SELECT cancel_reservations($1)", a) // ignore errors
+			dbtx.Exec(ctx, "SELECT cancel_reservation($1)", a) // ignore errors
 		}
 	}()
 
